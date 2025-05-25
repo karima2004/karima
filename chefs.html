@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chefs - Cuisine Marocaine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    .navbar-maroc {
+      background: linear-gradient(45deg, #a80000, #f39c12);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .navbar-maroc .navbar-brand,
+    .navbar-maroc .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .navbar-maroc .nav-link:hover,
+    .navbar-maroc .nav-link.active {
+      color: #27ae60 !important;
+    }
+    .category-btns {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .category-btns .btn {
+      margin: 0 10px 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .category-btns .btn.active,
+    .category-btns .btn:hover {
+      background-color: #a80000;
+      color: white;
+      border-color: #a80000;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(168 0 0 / 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 350px;
+      margin-bottom: 30px;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgb(168 0 0 / 0.25);
+    }
+    .card img {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      height: 320px;
+      object-fit: cover;
+    }
+    h1 {
+      color: #a80000;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .btn-primary {
+      background-color: #a80000;
+      border-color: #a80000;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #f39c12;
+      border-color: #f39c12;
+      color: #333;
+    }
+    .container {
+      max-width: 1140px;
+    }
+    .chef-specialties {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .chef-specialty {
+      background-color: rgba(168, 0, 0, 0.1);
+      color: #a80000;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .chef-social {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .chef-social a {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #a80000;
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    .chef-social a:hover {
+      background-color: #f39c12;
+      transform: scale(1.1);
+    }
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/intro-chef.jpg');
+      background-size: cover;
+      background-position:center;
+      padding: 200px ;
+      margin-bottom: 3rem;
+      color: white;
+      text-align: center;
+    }
+    .page-header h1 {
+      color: white;
+      margin-bottom: 15px;
+    }
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    .award-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #f39c12;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-maroc bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo1.png" alt="Logo Cuisine Marocaine" style="height: 50px; width: 200px;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCuisine">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCuisine">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="recette.html">Recettes</a></li>
+          
+          <li class="nav-item"><a class="nav-link active" href="chefs.html">Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+          
+        </ul>
+        <form class="d-flex" role="search" action="chefs.html" method="GET">
+          <input class="form-control me-2" id="searchInput" type="search" placeholder="Chercher un chef..." name="q" />
+          <button class="btn btn-light" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>LES GRANDS CHEFS MAROCAINS</h1>
+      <p>Découvrez les talents culinaires qui ont fait rayonner la gastronomie marocaine à travers le monde. Des artisans passionnés qui perpétuent les traditions tout en innovant.</p>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="container py-5">
+
+    <!-- Boutons de filtre -->
+    <div class="category-btns">
+      <button class="btn btn-outline-primary active" data-category="all">Tous</button>
+      <button class="btn btn-outline-primary" data-category="traditionnel">Cuisine Traditionnelle</button>
+      <button class="btn btn-outline-primary" data-category="moderne">Cuisine Moderne</button>
+      <button class="btn btn-outline-primary" data-category="patisserie">Pâtisserie</button>
+    </div>
+
+    <!-- Cartes des chefs -->
+    <div class="row g-5 justify-content-center" id="chefsContainer">
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="traditionnel">
+        <div class="card">
+          <div class="position-relative">
+            <img src="images/Choumicha.jpg" alt="Chef Choumicha" class="card-img-top" />
+            <span class="award-badge"><i class="fas fa-award"></i> Chef TV</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Chef Choumicha</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Tajines</span>
+              <span class="chef-specialty">Couscous</span>
+              <span class="chef-specialty">Pâtisseries</span>
+            </div>
+            <p class="card-text mt-3">Véritable ambassadrice de la cuisine marocaine, Choumicha est connue pour ses émissions télévisées et ses livres de recettes qui ont popularisé la gastronomie marocaine.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioChoumicha" aria-expanded="false" aria-controls="bioChoumicha">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioChoumicha">
+              <h6>Parcours:</h6>
+              <p>Choumicha Chafay est l'une des figures emblématiques de la cuisine marocaine. Née à Casablanca, elle a commencé sa carrière à la télévision marocaine en 1994. Son émission "Choumicha" est l'une des plus populaires au Maroc.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Plus de 10 livres de cuisine publiés</li>
+                <li>Participation à de nombreux événements culinaires internationaux</li>
+                <li>Propriétaire d'une école de cuisine à Casablanca</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"La cuisine marocaine est un art qui se transmet de génération en génération. Ma mission est de préserver ce patrimoine tout en le rendant accessible à tous."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="moderne">
+        <div class="card">
+          <div class="position-relative">
+            <img src="images/moha.jpg" alt="Chef Moha" class="card-img-top" />
+            <span class="award-badge"><i class="fas fa-award"></i> Étoilé</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Chef Moha</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Fusion</span>
+              <span class="chef-specialty">Gastronomie</span>
+              <span class="chef-specialty">Innovations</span>
+            </div>
+            <p class="card-text mt-3">Chef renommé pour sa cuisine marocaine moderne et créative, Moha Fedal est le propriétaire du célèbre restaurant "Dar Moha" à Marrakech.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioMoha" aria-expanded="false" aria-controls="bioMoha">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioMoha">
+              <h6>Parcours:</h6>
+              <p>Après une formation en France, Moha Fedal est revenu au Maroc pour ouvrir son restaurant dans un ancien riad à Marrakech. Il a rapidement acquis une renommée internationale pour sa vision innovante de la cuisine marocaine.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Restaurant "Dar Moha" classé parmi les meilleurs du Maroc</li>
+                <li>Plusieurs distinctions culinaires internationales</li>
+                <li>Apparitions dans des émissions culinaires internationales</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"Je crois en une cuisine qui respecte les traditions tout en embrassant la modernité. Chaque plat raconte une histoire, un voyage entre le passé et l'avenir."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="patisserie">
+        <div class="card">
+          <img src="images/najat.jpeg" alt="Chef Najat" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Chef Najat Kaanache</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Pâtisserie</span>
+              <span class="chef-specialty">Cuisine moléculaire</span>
+              <span class="chef-specialty">Gastronomie</span>
+            </div>
+            <p class="card-text mt-3">Surnommée "la chef au million d'idées", Najat a travaillé dans les plus grands restaurants du monde avant d'ouvrir son propre établissement à Fès.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioNajat" aria-expanded="false" aria-controls="bioNajat">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioNajat">
+              <h6>Parcours:</h6>
+              <p>Najat Kaanache a débuté sa carrière comme actrice avant de se tourner vers la cuisine. Elle a travaillé dans des restaurants prestigieux comme El Bulli, The French Laundry et Noma avant de revenir au Maroc.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Restaurant "Nur" à Fès reconnu internationalement</li>
+                <li>Participation à de nombreux événements gastronomiques internationaux</li>
+                <li>Documentaire Netflix sur son parcours</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"La cuisine est un langage universel qui transcende les frontières. Je veux que mes plats racontent l'histoire du Maroc avec une perspective contemporaine."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="traditionnel">
+        <div class="card">
+          <img src="images/meryem_cherkaoui.jpg" alt="Chef Meryem Cherkaoui" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Chef Meryem Cherkaoui</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Cuisine traditionnelle</span>
+              <span class="chef-specialty">Cuisine régionale</span>
+              <span class="chef-specialty">Herbes aromatiques</span>
+            </div>
+            <p class="card-text mt-3">Chef emblématique formée en France, Meryem Cherkaoui se consacre à la valorisation du patrimoine culinaire marocain et à la formation de jeunes talents.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioMeryem" aria-expanded="false" aria-controls="bioMeryem">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioMeryem">
+              <h6>Parcours:</h6>
+              <p>Après une formation à l'école hôtelière de Paris, Meryem Cherkaoui a travaillé dans plusieurs restaurants étoilés en France avant de revenir au Maroc pour promouvoir la cuisine locale.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Fondatrice de l'Association des Femmes Chefs du Maroc</li>
+                <li>Consultante pour plusieurs hôtels de luxe</li>
+                <li>Auteure de livres sur les épices marocaines</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"La cuisine marocaine repose sur la générosité et le partage. Je m'efforce de transmettre ces valeurs à travers mes plats et mon enseignement."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="patisserie">
+        <div class="card">
+          <div class="position-relative">
+            <img src="images/Hassan_M'Souli.jpg" alt="Chef Hassan M'Souli" class="card-img-top" />
+            <span class="award-badge"><i class="fas fa-award"></i> Meilleur Livre</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Chef Hassan M'Souli</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Pâtisseries</span>
+              <span class="chef-specialty">Cuisine berbère</span>
+              <span class="chef-specialty">Cuisine d'auteur</span>
+            </div>
+            <p class="card-text mt-3">Chef et auteur marocain reconnu internationalement, Hassan a exporté la cuisine marocaine en Australie où il a ouvert plusieurs restaurants à succès.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioHassan" aria-expanded="false" aria-controls="bioHassan">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioHassan">
+              <h6>Parcours:</h6>
+              <p>Originaire de Casablanca, Hassan M'Souli s'est installé en Australie dans les années 90 où il a fait connaître la cuisine marocaine. Ses restaurants à Sydney sont devenus des références.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Plusieurs livres de cuisine primés</li>
+                <li>Restaurant "Out of Africa" à Sydney</li>
+                <li>Émissions de cuisine sur les chaînes australiennes</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"La cuisine marocaine est comme un poème - il faut respecter sa structure tout en y ajoutant sa touche personnelle pour créer quelque chose de vraiment unique."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center chef-card" data-category="moderne">
+        <div class="card">
+          <img src="images/Issam_Rhachi.jpeg" alt="Chef Issam Rhachi" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Chef Issam Rhachi</h5>
+            <div class="chef-specialties">
+              <span class="chef-specialty">Cuisine fusion</span>
+              <span class="chef-specialty">Street food</span>
+              <span class="chef-specialty">Cuisine moderne</span>
+            </div>
+            <p class="card-text mt-3">Jeune chef talentueux, Issam représente la nouvelle génération qui réinvente la cuisine marocaine tout en respectant ses racines.</p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioIssam" aria-expanded="false" aria-controls="bioIssam">
+              En savoir plus
+            </button>
+            <div class="collapse mt-3" id="bioIssam">
+              <h6>Parcours:</h6>
+              <p>Formé à l'Institut Paul Bocuse, Issam Rhachi a travaillé dans plusieurs restaurants étoilés en Europe avant de revenir au Maroc pour ouvrir son propre concept à Rabat.</p>
+              <h6>Réalisations:</h6>
+              <ul>
+                <li>Restaurant "Nomad" à Rabat</li>
+                <li>Finaliste de plusieurs concours culinaires internationaux</li>
+                <li>Consultant pour des chaînes hôtelières de luxe</li>
+              </ul>
+              <h6>Philosophie culinaire:</h6>
+              <p>"La cuisine marocaine est un trésor qui mérite d'être redécouvert avec un regard contemporain. Je cherche à créer des ponts entre tradition et modernité."</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer style="background-color: #a80000; color: white;">
+    <div class="container text-center py-4">
+      <p>© 2025 Cuisine Marocaine. Tous droits réservés.</p>
+  
+      <p>
+        <a href="index.html" style="color: white; text-decoration: underline;">Accueil</a> |
+        <a href="recette.html" style="color: white; text-decoration: underline;">Recettes</a> |
+        <a href="chefs.html" style="color: white; text-decoration: underline;">Chefs</a> |
+        <a href="culture.html" style="color: white; text-decoration: underline;">Culture</a> 
+        
+      </p>
+  
+      <p>Contact : <a href="mailto:contact@cuisinemarocaine.com" style="color: white;">contact@cuisinemarocaine.com</a></p>
+  
+      <div>
+        <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const buttons = document.querySelectorAll('.category-btns .btn');
+    const chefs = document.querySelectorAll('.chef-card');
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.querySelector('form[role="search"]');
+
+    // Filtrage par catégorie
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+
+        // Mise à jour du bouton actif
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        chefs.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (category === 'all' || category === cardCategory) {
+            card.classList.remove('d-none');
+          } else {
+            card.classList.add('d-none');
+          }
+        });
+      });
+    });
+
+    // Recherche par mot-clé
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const query = searchInput.value.toLowerCase();
+
+      // Réinitialiser les boutons de catégorie
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector('[data-category="all"]').classList.add('active');
+
+      chefs.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const text = card.querySelector('.card-text').textContent.toLowerCase();
+        const specialties = Array.from(card.querySelectorAll('.chef-specialty')).map(el => el.textContent.toLowerCase()).join(' ');
+        
+        if (title.includes(query) || text.includes(query) || specialties.includes(query)) {
+          card.classList.remove('d-none');
+        } else {
+          card.classList.add('d-none');
+        }
+      });
+    });
+
+    // Animation au scroll
+    function revealOnScroll() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (cardTop < windowHeight - 100) {
+          card.style.opacity = '1';
+        }
+      });
+    }
+
+    // Initialiser les cartes avec une opacité réduite
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transition = 'opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease';
+      });
+      
+      // Déclencher l'animation au chargement initial
+      setTimeout(revealOnScroll, 300);
+    });
+
+    // Déclencher l'animation au scroll
+    window.addEventListener('scroll', revealOnScroll);
+  </script>
+</body>
+</html>
