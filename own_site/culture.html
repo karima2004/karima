@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Culture - Cuisine Marocaine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    .navbar-maroc {
+      background: linear-gradient(45deg, #a80000, #f39c12);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .navbar-maroc .navbar-brand,
+    .navbar-maroc .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .navbar-maroc .nav-link:hover {
+      color: #27ae60 !important;
+    }
+    header {
+      background: url('images/maroc.jpg') center/cover no-repeat;
+      height: 60vh;
+      position: relative;
+      color: white;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      
+    }
+    .section-content {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section-content h2 {
+      margin-bottom: 1.5rem;
+      color: #a80000;
+      text-align: center;
+    }
+    .culture-img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #a80000;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-maroc  bg-body-tertiary">
+    <div class="container-fluid">
+      <!-- LOGO IMAGE -->
+      <a class="navbar-brand" id="logo" href="index.html">
+        <img src="images/logo1.png" alt="Logo Cuisine Marocaine" style="height: 50px;width: 200px;" />
+      </a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCuisine">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarCuisine">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link " href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="recette.html">Recettes</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Chefs</a></li>
+          <li class="nav-item"><a class="nav-link  active" href="culture.html">Culture</a></li>
+          
+        </ul>
+        <form class="d-flex" role="search" action="recette.html" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Chercher une recette..." aria-label="Recherche" name="q" />
+          <button class="btn btn-light" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1 class="display-4 fw-bold">La Culture de la Cuisine Marocaine</h1>
+      <p class="lead">Traditions, rituels et histoires qui rendent notre gastronomie unique.</p>
+    </div>
+  </header>
+
+  <!-- Section: Origine de la Cuisine Marocaine -->
+  <section class="section-content">
+    <h2>Origine de la Cuisine Marocaine</h2>
+    <p>
+La cuisine marocaine est un miroir de la richesse historique du royaume. Son évolution a été nourrie par des siècles d’échanges culturels et commerciaux. Le Maroc, carrefour entre l’Afrique, l’Europe et le Moyen-Orient, a su absorber et adapter les apports culinaires des civilisations qui l'ont traversé ou influencé. Des Berbères aux Arabes, en passant par les Andalous, les Africains subsahariens et les Européens, tous ont contribué à forger cette cuisine colorée, épicée et profondément identitaire.    </p>
+  </section>
+
+  <!-- Section: Les Influences Culinaires du Maroc -->
+  <section class="section-content ">
+    <h2>Les Influences Culinaires du Maroc</h2>
+    <p><strong>L’Influence Berbère : La base ancestrale</strong></p>
+    <p>
+Les Berbères, ou Amazighs, sont les premiers bâtisseurs de l’identité culinaire marocaine. Vivant en harmonie avec la terre, ils ont conçu une cuisine simple et rustique, adaptée aux ressources locales. Le couscous, plat emblématique à base de semoule, et les tajines, plats mijotés aux multiples variations, sont issus de leur savoir-faire. Les herbes comme le thym, le romarin et le cumin étaient utilisées non seulement pour parfumer les plats, mais aussi pour leurs vertus médicinales. La cuisson lente dans des plats en terre cuite est une technique héritée de cette époque, toujours utilisée aujourd’hui.    </p>
+
+    <p><strong>2. L’Influence Arabe : L’art des épices et du raffinement</strong></p>
+    <p>
+L’arrivée des Arabes au 7ᵉ siècle a transformé la cuisine marocaine en y introduisant des ingrédients exotiques et des techniques élaborées. Le safran, la cannelle, le gingembre, et la fleur d’oranger sont devenus des piliers des plats marocains. L’art du sucré-salé, très présent dans des plats comme le tajine aux pruneaux, est directement inspiré de la tradition arabe. Cette influence a également introduit des pratiques culinaires liées à la religion musulmane, comme le respect des règles alimentaires halal et les plats festifs liés au calendrier religieux.    </p>
+
+    <p><strong>3.L’Influence Andalouse : La délicatesse méditerranéenne</strong></p>
+    <p>
+Après la Reconquista, les musulmans d’Andalousie, fuyant la péninsule Ibérique, se sont réfugiés au Maroc avec leurs recettes et leurs techniques. Ils ont enrichi la cuisine locale avec des produits typiquement méditerranéens : huile d’olive, coriandre fraîche, agrumes, amandes… Ils ont également introduit une finesse particulière dans la préparation des plats et des desserts. Les pastillas, feuilletés sucrés-salés souvent à base de pigeon ou de fruits de mer, illustrent parfaitement cette influence andalouse.    </p>
+
+    <p><strong>4. L’Influence Sub-Saharienne: La chaleur des tropiques</strong></p>
+    <p>
+Le Sahara n’a jamais été une barrière infranchissable : au contraire, les routes caravanières ont permis des échanges riches avec l’Afrique noire. Des ingrédients tels que le mil, les haricots, ou encore les épices fortes comme le piment ont traversé le désert pour enrichir les recettes marocaines. Dans le sud du pays, on retrouve encore des préparations inspirées de ces traditions, notamment dans les plats à base de viande séchée (comme le khlii) et de légumes racines.    </p>
+
+    <p><strong>5. L’Influence Européenne: La touche moderne</strong></p>
+    <p>
+Au XXᵉ siècle, la présence européenne – notamment française et espagnole – a introduit de nouvelles habitudes alimentaires. Le pain baguette, le café, les viennoiseries, mais aussi certaines techniques de dressage et de cuisson au four ont trouvé leur place dans la cuisine marocaine. Aujourd’hui encore, il n’est pas rare de trouver des plats marocains revisités selon les standards européens, ou des repas où se mêlent couscous et gratin dauphinois.    </p>
+  </section>
+
+  <!-- Section: Le Rôle de la Cuisine Marocaine -->
+  <section class="section-content">
+    <h2>Le Rôle de la Cuisine Marocaine : Tradition, Festivals et Culture</h2>
+    <p><strong>1. Un Pilier des Festivités</strong></p>
+    <p>
+La gastronomie marocaine est au cœur des grandes célébrations. À l’occasion des mariages, naissances, ou fêtes religieuses comme le Ramadan, l’Aïd al-Fitr et l’Aïd al-Adha, les familles préparent des repas généreux et symboliques. Le couscous du vendredi, partagé après la prière, est un rituel hebdomadaire dans de nombreux foyers. Pendant le mois sacré du Ramadan, le iftar (rupture du jeûne) devient un moment sacré et chaleureux, marqué par la harira, les chebakias, les datte, et le thé à la menthe    </p>
+   
+
+    <p><strong>2. L’Hospitalité Marocaine : Une culture du partage</strong></p>
+    <p>
+En terre marocaine, offrir à manger est un acte d’honneur et de respect. L’invité est toujours reçu avec générosité. On lui propose le meilleur, souvent servi dans de grands plats communs, symbole d’unité et de convivialité. Le thé à la menthe, versé avec grâce, est un véritable rite d’accueil. Le partage du pain, des fruits secs et des pâtisseries fait partie intégrante de cette culture de l’hospitalité.    </p>
+
+    <p><strong>3. Les Traditions Culinaires au Quotidien</strong></p>
+    <p>
+Même en dehors des fêtes, la cuisine rythme la vie des Marocains. Dans les souks, les marchés de quartier, ou encore dans les maisons rurales, la préparation des repas est un moment important de la journée. Chaque région a ses spécificités :    </p>
+<ul>
+  <li>Au nord, on trouve des plats influencés par la Méditerranée comme les tajines de poisson. </li>
+  <li>Au sud, les couscous aux légumes secs et aux viandes épicées.</li>
+  <li>Dans les montagnes, des plats riches en céréales et en produits laitiers, souvent adaptés aux climats rigoureux.</li>
+</ul>
+  </section>
+
+   <!-- Footer -->
+   <footer style="background-color: #a80000; color: white;">
+    <div class="container text-center py-4">
+      <p>© 2025 Cuisine Marocaine. Tous droits réservés.</p>
+  
+      <p>
+        <a href="index.html" style="color: white; text-decoration: underline;">Accueil</a> |
+        <a href="recette.html" style="color: white; text-decoration: underline;">Recettes</a> |
+          <a href="chefs.html" style="color: white; text-decoration: underline;">Chefs</a> |
+        <a href="culture.html" style="color: white; text-decoration: underline;">Culture</a> 
+     
+      </p>
+  
+      <p>Contact : <a href="mailto:contact@cuisinemarocaine.com" style="color: white;">contact@cuisinemarocaine.com</a></p>
+  
+      <div>
+        <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+

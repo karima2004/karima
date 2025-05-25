@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recettes - Cuisine Marocaine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    .navbar-maroc {
+      background: linear-gradient(45deg, #a80000, #f39c12);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .navbar-maroc .navbar-brand,
+    .navbar-maroc .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .navbar-maroc .nav-link:hover,
+    .navbar-maroc .nav-link.active {
+      color: #27ae60 !important;
+    }
+    .category-btns {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .category-btns .btn {
+      margin: 0 10px 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .category-btns .btn.active,
+    .category-btns .btn:hover {
+      background-color: #a80000;
+      color: white;
+      border-color: #a80000;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(168 0 0 / 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+       width: 350px; 
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgb(168 0 0 / 0.25);
+    }
+    .card img {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      height: 270px;
+      object-fit: cover;
+    }
+    h1 {
+      color: #a80000;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .btn-primary {
+      background-color: #a80000;
+      border-color: #a80000;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #f39c12;
+      border-color: #f39c12;
+      color: #333;
+    }
+    .container {
+      max-width: 1140px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-maroc bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo1.png" alt="Logo Cuisine Marocaine" style="height: 50px; width: 200px;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCuisine">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCuisine">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="recette.html">Recettes</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+          
+        </ul>
+        <form class="d-flex" role="search" action="recette.html" method="GET">
+          <input class="form-control me-2" id="searchInput" type="search" placeholder="Chercher une recette..." name="q" />
+          <button class="btn btn-light" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="container py-5">
+    <h1>Nos Recettes Marocaines</h1>
+
+    <!-- Boutons de filtre -->
+    <div class="category-btns">
+      <button class="btn btn-outline-primary active" data-category="all">Toutes</button>
+      <button class="btn btn-outline-primary" data-category="pains">Pains et Crêpes</button>
+      <button class="btn btn-outline-primary" data-category="plat">Plats</button>
+      <button class="btn btn-outline-primary" data-category="soupes">Soupes</button>
+      <button class="btn btn-outline-primary" data-category="patisserie">Pâtisseries</button>
+      <button class="btn btn-outline-primary" data-category="boisson">Boissons</button>
+    </div>
+
+    <!-- Cartes de recettes -->
+  
+      <div class="row g-5 justify-content-center" id="recipesContainer" data-category="all">
+
+        <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="plat">
+            <div class="card">
+              <img src="images/tajine.jpg" alt="Tajine de poulet" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Tajine de poulet</h5>
+                <p class="card-text">Plat mijoté aux épices avec citron confit et olives.</p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteTajine" aria-expanded="false" aria-controls="recetteTajine">
+                  Voir la recette
+                </button>
+                <div class="collapse mt-3" id="recetteTajine">
+                  <h6>Ingrédients :</h6>
+                  <ul>
+                    <li>1 poulet découpé</li>
+                    <li>2 citrons confits</li>
+                    <li>100g d'olives vertes</li>
+                    <li>2 oignons</li>
+                    <li>3 gousses d’ail</li>
+                    <li>1 c. à c. de gingembre</li>
+                    <li>1 c. à c. de curcuma</li>
+                    <li>Huile d’olive, sel, poivre</li>
+                  </ul>
+                  <h6>Préparation :</h6>
+                  <ol>
+                    <li>Faire revenir l'oignon et l'ail dans l’huile d’olive.</li>
+                    <li>Ajouter le poulet et les épices, bien mélanger.</li>
+                    <li>Ajouter un peu d’eau, couvrir et mijoter 30-40 min.</li>
+                    <li>Ajouter les citrons confits et les olives. Cuire encore 10 min.</li>
+                    <li>Servir chaud avec du pain marocain.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="plat">
+            <div class="card">
+              <img src="images/couscous.jpg" alt="Couscous royal" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Couscous royal</h5>
+                <p class="card-text">Semoule fine accompagnée de légumes, viandes et sauce parfumée.</p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteCouscous" aria-expanded="false" aria-controls="recetteCouscous">
+                  Voir la recette
+                </button>
+                <div class="collapse mt-3" id="recetteCouscous">
+                  <h6>Ingrédients :</h6>
+                  <ul>
+                    <li>500g de semoule moyenne</li>
+                    <li>500g de viande (agneau, poulet, merguez)</li>
+                    <li>4 carottes, 2 navets, 2 courgettes</li>
+                    <li>1 oignon, pois chiches, épices pour couscous</li>
+                    <li>Huile d’olive, sel, poivre</li>
+                  </ul>
+                  <h6>Préparation :</h6>
+                  <ol>
+                    <li>Faire revenir la viande et les épices dans l'huile.</li>
+                    <li>Ajouter les légumes et couvrir d’eau.</li>
+                    <li>Laisser mijoter 45 min.</li>
+                    <li>Préparer la semoule à la vapeur 2-3 fois.</li>
+                    <li>Servir la viande et les légumes sur un lit de semoule.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+         <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="plat">
+  <div class="card">
+    <img src="images/pastila.jpg" alt="Pastilla aux fruits de mer" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Pastilla aux fruits de mer</h5>
+      <p class="card-text">Un plat raffiné mariant le croustillant de la brick aux saveurs marines.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recettePastillaMer" aria-expanded="false" aria-controls="recettePastillaMer">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recettePastillaMer">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>Feuilles de brick</li>
+          <li>300g de crevettes décortiquées</li>
+          <li>300g de calamars en rondelles</li>
+          <li>200g de moules décortiquées</li>
+          <li>1 oignon haché</li>
+          <li>2 gousses d'ail</li>
+          <li>Persil et coriandre ciselés</li>
+          <li>Épices : sel, poivre, paprika, curcuma</li>
+          <li>Jus de citron</li>
+          <li>Fromage râpé (optionnel)</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Faire revenir l'oignon et l'ail dans un peu d'huile d'olive.</li>
+          <li>Ajouter les fruits de mer, les épices, les herbes et cuire 10 à 15 minutes.</li>
+          <li>Égoutter le mélange pour enlever l'excès de jus.</li>
+          <li>Monter la pastilla : alterner feuilles de brick, garniture aux fruits de mer et fromage.</li>
+          <li>Cuire au four à 180°C jusqu'à ce qu'elle soit dorée.</li>
+          <li>Servir chaude, arrosée d’un filet de citron.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-4 d-flex justify-content-center recipe-card" data-category="soupes">
+  <div class="card">
+    <img src="images/harira.webp" alt="Harira marocaine" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Harira</h5>
+      <p class="card-text">Soupe marocaine riche et parfumée, parfaite pour le ftour pendant le Ramadan.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteHarira" aria-expanded="false" aria-controls="recetteHarira">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteHarira">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>250g de viande (agneau ou bœuf), coupée en petits morceaux</li>
+          <li>1 oignon haché</li>
+          <li>2 branches de céleri</li>
+          <li>1 bouquet de coriandre</li>
+          <li>1 bouquet de persil</li>
+          <li>150g de lentilles</li>
+          <li>100g de pois chiches trempés la veille</li>
+          <li>3 tomates râpées</li>
+          <li>2 c. à s. de concentré de tomate</li>
+          <li>50g de vermicelles</li>
+          <li>Farine (pour la « tédouira »)</li>
+          <li>Épices : sel, poivre, gingembre, curcuma, cannelle</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Faire revenir la viande avec l’oignon, le céleri, les herbes et les épices dans une marmite avec un peu d’huile.</li>
+          <li>Ajouter les lentilles, pois chiches, tomates et concentré de tomate. Couvrir d’eau et laisser cuire 45 minutes.</li>
+          <li>Ajouter les vermicelles et continuer la cuisson 10 minutes.</li>
+          <li>Préparer la tédouira (mélange d’eau et de farine) et l’ajouter en remuant jusqu’à épaississement.</li>
+          <li>Servir chaud avec un filet de citron si désiré.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 d-flex justify-content-center recipe-card" data-category="pains">
+  <div class="card">
+    <img src="images/bghrir.webp" alt="Baghrir" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Baghrir</h5>
+      <p class="card-text">Crêpes légères et spongieuses marocaines, parfaites avec du miel et du beurre.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteBaghrir" aria-expanded="false" aria-controls="recetteBaghrir">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteBaghrir">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>250g de semoule fine</li>
+          <li>50g de farine</li>
+          <li>1/2 c. à c. de sel</li>
+          <li>1 sachet de levure chimique (7g)</li>
+          <li>1 c. à c. de levure boulangère</li>
+          <li>600 ml d’eau tiède</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mixer tous les ingrédients jusqu’à obtenir une pâte lisse et sans grumeaux.</li>
+          <li>Laisser reposer 30 minutes à température ambiante.</li>
+          <li>Verser une petite louche de pâte dans une poêle antiadhésive chaude (sans matière grasse).</li>
+          <li>Cuire à feu moyen jusqu’à ce que des trous se forment et que la surface soit sèche (ne pas retourner).</li>
+          <li>Servir chaud avec un mélange de beurre fondu et de miel.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 d-flex justify-content-center recipe-card" data-category="patisserie">
+  <div class="card">
+    <img src="images/chebakia.jpg"alt="Chebakia" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Chebakia</h5>
+      <p class="card-text">Pâtisserie marocaine croustillante au miel et sésame, incontournable pendant le Ramadan.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteChebakia" aria-expanded="false" aria-controls="recetteChebakia">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteChebakia">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>500g de farine</li>
+          <li>100g de graines de sésame grillées et moulues</li>
+          <li>1 c. à s. de vinaigre</li>
+          <li>1 c. à s. d’eau de fleur d’oranger</li>
+          <li>1 c. à c. de cannelle</li>
+          <li>1 pincée de sel</li>
+          <li>Safran et gomme arabique (optionnel)</li>
+          <li>100g de beurre fondu</li>
+          <li>1 œuf</li>
+          <li>Eau tiède (pour former la pâte)</li>
+          <li>Huile (pour la friture)</li>
+          <li>Miel et graines de sésame (pour enrober)</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mélanger les ingrédients secs, ajouter beurre, œuf, fleur d’oranger, puis l’eau jusqu’à obtention d’une pâte souple.</li>
+          <li>Former des boules, les abaisser finement, découper en rectangles et façonner les chebakias (en forme de rose tressée).</li>
+          <li>Faire frire les chebakias dans l’huile chaude jusqu’à dorure.</li>
+          <li>Plonger immédiatement dans du miel tiède, puis parsemer de graines de sésame.</li>
+          <li>Laisser égoutter avant de servir.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          
+          <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="plat">
+            <div class="card">
+              <img src="images/rfisa.jpg" alt="Rfissa" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Rfissa</h5>
+                <p class="card-text">Plat traditionnel marocain à base de msemen effiloché, lentilles et poulet.</p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteRfissa" aria-expanded="false" aria-controls="recetteRfissa">
+                  Voir la recette
+                </button>
+                <div class="collapse mt-3" id="recetteRfissa">
+                  <h6>Ingrédients :</h6>
+                  <ul>
+                    <li>1 poulet fermier</li>
+                    <li>Oignons émincés</li>
+                    <li>Lentilles, fenugrec</li>
+                    <li>Msemen ou trid coupé en lanières</li>
+                    <li>Curcuma, gingembre, safran</li>
+                    <li>Huile d’olive, sel, poivre</li>
+                  </ul>
+                  <h6>Préparation :</h6>
+                  <ol>
+                    <li>Faire revenir le poulet avec les épices et les oignons.</li>
+                    <li>Ajouter les lentilles et un peu de fenugrec, couvrir d’eau et cuire.</li>
+                    <li>Déposer le mélange sur les morceaux de msemen ou trid.</li>
+                    <li>Servir chaud, généreusement arrosé de sauce.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="soupes">
+  <div class="card">
+    <img src="images/bisara.webp" alt="Bissara marocaine" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Bissara</h5>
+      <p class="card-text">Soupe marocaine onctueuse à base de fèves, idéale pour les journées froides.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteBissara" aria-expanded="false" aria-controls="recetteBissara">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteBissara">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>500g de fèves sèches ou de pois cassés</li>
+          <li>4 gousses d’ail</li>
+          <li>1 c. à c. de cumin</li>
+          <li>1 c. à c. de paprika</li>
+          <li>Sel</li>
+          <li>Huile d’olive</li>
+          <li>Un peu d’eau (environ 1,5 L)</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Faire tremper les fèves toute une nuit si elles ne sont pas déjà décortiquées.</li>
+          <li>Les mettre dans une casserole avec l’ail, le cumin, le paprika, le sel et l’eau.</li>
+          <li>Laisser cuire à feu moyen jusqu’à ce que les fèves soient tendres (environ 45 minutes à 1 heure).</li>
+          <li>Mixer la soupe jusqu’à obtenir une texture lisse et veloutée.</li>
+          <li>Servir chaud avec un filet d’huile d’olive, une pincée de cumin et du pain marocain.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 d-flex justify-content-center recipe-card" data-category="pains">
+  <div class="card">
+    <img src="images/msemen.jpg" alt="Msemen" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Msemen</h5>
+      <p class="card-text">Crêpes marocaines feuilletées, croustillantes à l’extérieur et fondantes à l’intérieur.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteMsemen" aria-expanded="false" aria-controls="recetteMsemen">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteMsemen">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>250g de semoule fine</li>
+          <li>250g de farine</li>
+          <li>1/2 c. à c. de sel</li>
+          <li>1 c. à c. de sucre</li>
+          <li>1 c. à c. de levure boulangère</li>
+          <li>300 ml d’eau tiède (environ)</li>
+          <li>Huile, beurre fondu et semoule pour le feuilletage</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mélanger la farine, semoule, sel, sucre et levure. Ajouter progressivement l’eau et pétrir jusqu’à obtenir une pâte souple et élastique.</li>
+          <li>Former des boules de pâte et les laisser reposer 15 minutes.</li>
+          <li>Étaler chaque boule en une fine galette, huiler, saupoudrer de semoule et plier en carré.</li>
+          <li>Cuire chaque msemen dans une poêle chaude avec un peu d’huile jusqu’à dorure des deux côtés.</li>
+          <li>Servir chaud avec du miel, du fromage ou du thé à la menthe.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+          
+          <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="boisson">
+            <div class="card">
+              <img src="images/the.jpg" alt="Thé à la menthe" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Thé à la menthe</h5>
+                <p class="card-text">Boisson traditionnelle sucrée et parfumée à la menthe.</p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteThe" aria-expanded="false" aria-controls="recetteThe">
+                  Voir la recette
+                </button>
+                <div class="collapse mt-3" id="recetteThe">
+                  <h6>Ingrédients :</h6>
+                  <ul>
+                    <li>1 bouquet de menthe fraîche</li>
+                    <li>2 c. à s. de thé vert</li>
+                    <li>100g de sucre</li>
+                    <li>1L d’eau bouillante</li>
+                  </ul>
+                  <h6>Préparation :</h6>
+                  <ol>
+                    <li>Mettre le thé dans la théière, ajouter un peu d’eau bouillante, rincer et jeter l’eau.</li>
+                    <li>Ajouter la menthe et le sucre, verser le reste d’eau bouillante.</li>
+                    <li>Laisser infuser quelques minutes.</li>
+                    <li>Servir chaud, en versant de haut pour faire mousser.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="pains">
+  <div class="card">
+    <img src="images/harcha.jpg" alt="Harcha" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Harcha</h5>
+      <p class="card-text">Galette marocaine à la semoule, parfaite pour le petit-déjeuner ou le goûter.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteHarcha" aria-expanded="false" aria-controls="recetteHarcha">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteHarcha">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>250g de semoule fine</li>
+          <li>1 c. à s. de sucre</li>
+          <li>1/2 c. à c. de sel</li>
+          <li>1 c. à c. de levure chimique</li>
+          <li>60g de beurre fondu</li>
+          <li>120 ml de lait (ou plus selon besoin)</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mélanger la semoule, sucre, sel, levure et beurre fondu. Sabler avec les doigts.</li>
+          <li>Ajouter le lait progressivement jusqu’à obtention d’une pâte souple, sans pétrir.</li>
+          <li>Laisser reposer 10 minutes.</li>
+          <li>Former une galette (ou plusieurs petites), saupoudrer de semoule et cuire sur une poêle chaude à feu moyen.</li>
+          <li>Retourner jusqu’à ce que chaque face soit bien dorée. Servir tiède avec du miel ou du fromage.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+     </div>
+
+     <div class="col-md-4 d-flex justify-content-center recipe-card" data-category="patisserie">
+  <div class="card">
+    <img src="images/ghriba.jpg" alt="Ghriba" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Ghriba aux amandes</h5>
+      <p class="card-text">Biscuit marocain fondant à base d’amandes, parfait pour le thé.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteGhriba" aria-expanded="false" aria-controls="recetteGhriba">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteGhriba">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li>250 g de farine</li>
+          <li>200 g de sucre glace</li>
+          <li>125 g d’amandes moulues</li>
+          <li>125 g de beurre fondu</li>
+          <li>1 œuf</li>
+          <li>1 c. à c. de levure chimique</li>
+          <li>1 c. à c. de vanille</li>
+          <li>Sucre glace (pour saupoudrer)</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mélanger farine, levure, sucre glace et amandes moulues.</li>
+          <li>Ajouter beurre fondu, œuf et vanille, puis pétrir jusqu’à obtenir une pâte homogène.</li>
+          <li>Former des boules, les déposer sur une plaque recouverte de papier cuisson.</li>
+          <li>Écraser légèrement chaque boule avec le dos d’une fourchette.</li>
+          <li>Cuire à 180°C pendant 15-20 min jusqu’à légère dorure.</li>
+          <li>Laisser refroidir et saupoudrer de sucre glace avant de servir.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 d-flex justify-content-center recipe-card" data-category="patisserie">
+  <div class="card">
+    <img src="images/kaab_ghazal.jpg" alt="Kaab el Ghazal" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">Kaab el Ghazal</h5>
+      <p class="card-text">Pâtisserie marocaine en forme de cornes de gazelle, farcie aux amandes et délicatement parfumée.</p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#recetteKaabElGhazal" aria-expanded="false" aria-controls="recetteKaabElGhazal">
+        Voir la recette
+      </button>
+      <div class="collapse mt-3" id="recetteKaabElGhazal">
+        <h6>Ingrédients :</h6>
+        <ul>
+          <li><strong>Pâte :</strong></li>
+          <li>250 g de farine</li>
+          <li>125 g de beurre fondu</li>
+          <li>50 g de sucre glace</li>
+          <li>1 pincée de sel</li>
+          <li>3 à 4 c. à s. d’eau de fleur d’oranger</li>
+          <li>Eau tiède (si besoin)</li>
+          <li><strong>Farce :</strong></li>
+          <li>250 g de poudre d’amandes</li>
+          <li>150 g de sucre glace</li>
+          <li>1 c. à c. de cannelle</li>
+          <li>2 c. à s. d’eau de fleur d’oranger</li>
+          <li>1 c. à s. de beurre fondu</li>
+        </ul>
+        <h6>Préparation :</h6>
+        <ol>
+          <li>Mélanger les ingrédients de la pâte, ajouter eau de fleur d’oranger et un peu d’eau tiède pour obtenir une pâte souple. Laisser reposer.</li>
+          <li>Mélanger les ingrédients de la farce jusqu’à obtenir une pâte ferme.</li>
+          <li>Étaler la pâte en fines feuilles, découper des cercles d’environ 8 cm de diamètre.</li>
+          <li>Déposer une boule de farce au centre, plier en croissant en pinçant bien les bords.</li>
+          <li>Cuire au four à 180°C environ 15 minutes, sans laisser colorer.</li>
+          <li>Laisser refroidir avant de servir.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+   
+
+
+
+</div>
+
+
+
+
+  </div>
+   
+  <footer style="background-color: #a80000; color: white;">
+    <div class="container text-center py-4">
+      <p>© 2025 Cuisine Marocaine. Tous droits réservés.</p>
+  
+      <p>
+        <a href="index.html" style="color: white; text-decoration: underline;">Accueil</a> |
+        <a href="recette.html" style="color: white; text-decoration: underline;">Recettes</a> |
+        <a href="chefs.html" style="color: white; text-decoration: underline;">Chefs</a> |
+        <a href="culture.html" style="color: white; text-decoration: underline;">Culture</a> |
+        
+      </p>
+  
+      <p>Contact : <a href="mailto:contact@cuisinemarocaine.com" style="color: white;">contact@cuisinemarocaine.com</a></p>
+  
+      <div>
+        <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" style="color: white; margin: 0 10px; font-size: 1.5rem;">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const buttons = document.querySelectorAll('.category-btns .btn');
+    const recipes = document.querySelectorAll('.recipe-card');
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.querySelector('form[role="search"]');
+
+    // Filtrage par catégorie
+    // Filtrage par catégorie
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.getAttribute('data-category');
+
+    // Mise à jour du bouton actif
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    recipes.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      if (category === 'all' || category === cardCategory) {
+        card.classList.remove('d-none');
+      } else {
+        card.classList.add('d-none');
+      }
+    });
+  });
+});
+
+
+    // Recherche par mot-clé
+    searchForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const query = searchInput.value.toLowerCase();
+
+  // Réinitialiser les boutons de catégorie
+  buttons.forEach(btn => btn.classList.remove('active'));
+  document.querySelector('[data-category="all"]').classList.add('active');
+
+  recipes.forEach(card => {
+    const title = card.querySelector('.card-title').textContent.toLowerCase();
+    if (title.includes(query)) {
+      card.classList.remove('d-none');
+    } else {
+      card.classList.add('d-none');
+    }
+  });
+});
+
+  </script>
+</body>
+
+</html>
